@@ -6,7 +6,7 @@ pub fn opts(endian: Endian) -> TargetOptions {
         allow_asm: true,
         endian,
         linker_flavor: LinkerFlavor::BpfLinker,
-        atomic_cas: false,
+        atomic_cas: true,
         executables: true,
         dynamic_linking: true,
         no_builtins: true,
@@ -20,6 +20,7 @@ pub fn opts(endian: Endian) -> TargetOptions {
         obj_is_bitcode: true,
         requires_lto: false,
         singlethread: true,
+        min_atomic_width: Some(32),
         max_atomic_width: Some(64),
         ..Default::default()
     }
